@@ -1,0 +1,34 @@
+python -m pip install torch==2.1.2+cu118 torchaudio==2.1.2+cu118 `
+  --index-url https://download.pytorch.org/whl/cu118
+
+
+conda activate meetai
+python -m pip uninstall -y numpy
+python -m pip install numpy==1.26.4
+
+conda activate meetai
+python -m pip install soundfile
+
+python -m pip uninstall -y huggingface_hub
+python -m pip install huggingface_hub==0.20.3
+
+
+
+Get-ChildItem -Recurse -Filter *.ogg | Remove-Item
+Get-ChildItem -Recurse -Filter *.ogg | ForEach-Object {
+>>     ffmpeg -y -i "$($_.FullName)" -ac 1 -ar 16000 "$($_.DirectoryName)\$($_.BaseName).wav"
+>> }
+
+pip install sounddevice
+python -m pip install huggingface_hub==0.20.3
+conda install -y -c conda-forge sox  
+python -m pip install soundfile  
+python -m pip install requests 
+python -m pip install numpy==1.26.4 
+
+python -m pip install torch==2.1.2 torchaudio==2.1.2
+pip install speechbrain
+ pip install torchaudio
+ pip install torch       
+ python -m pip install torch torchaudio speechbrain sounddevice numpy scipy scikit-learn
+    pip install torch torchaudio speechbrain sounddevice numpy scipy scikit-learn
